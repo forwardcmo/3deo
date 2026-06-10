@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3DEO — Geiger-mode Lidar for Large-Scale 3D Mapping</title>
+<meta name="description" content="3DEO builds airborne Geiger-mode lidar systems that map farther, faster, and more accurately than conventional lidar — from consulting to collection, processing, and answers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-base="">
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-screen-label="Home / Hero">
+  <div class="ha-bg"></div>
+  <div class="ha-scrim"></div>
+  <div class="ha-grain"></div>
+  <div class="ha-coords">
+    <div><span class="cx">SEQUOIA</span> · 38.94°N 92.33°W</div>
+    <div>ALT 50,000 FT · GSD 1 FT</div>
+    <div>COLORED BY ELEVATION</div>
+  </div>
+  <div class="ha-inner">
+    <span class="ha-eyebrow" data-reveal>Geiger-mode lidar · MIT Lincoln Lab heritage</span>
+    <h1 data-reveal>One photon is all it takes.</h1>
+    <p class="ha-lead" data-reveal>Single-photon sensitivity lets us map at high resolution from far higher altitudes — <strong>more accurate data, faster, over wider areas</strong>, than systems that cut corners.</p>
+    <div class="ha-btns" data-reveal>
+      <a class="btn btn-primary btn-lg" href="about/contact.html">Book a call <span class="arrow">→</span></a>
+      <a class="btn btn-lg btn-glass" href="point-clouds/index.html">See real point clouds</a>
+    </div>
+  </div>
+  <div class="ha-telemetry" data-reveal>
+    <div class="t-stat"><span class="t-num">10–30M</span><span class="t-lab">3D measurements / sec</span></div>
+    <div class="t-div"></div>
+    <div class="t-stat"><span class="t-num">50,000 ft</span><span class="t-lab">Collection altitude</span></div>
+    <div class="t-div"></div>
+    <div class="t-stat"><span class="t-num">900 km²</span><span class="t-lab">Mapped per hour</span></div>
+    <span class="ramp-legend"><span>LOW</span><span class="ramp"></span><span>HIGH</span></span>
+  </div>
+</section>
+
+<!-- ============ TRUST / INTRO ============ -->
+<section class="section-sm bg-alt" data-screen-label="Home / Intro">
+  <div class="wrap">
+    <div class="intro-grid" data-reveal>
+      <p class="intro-statement">We are the trusted advisors of the geospatial industry — guiding partners across <strong>every stage of data collection</strong>, in every industry, even when they don't yet know what they need.</p>
+      <div class="intro-aside">
+        <p>An MIT Lincoln Laboratory spin-out founded in 2014, headquartered in Norwood, Massachusetts. We design, build, fly, and process airborne Geiger-mode lidar for government and commercial clients worldwide.</p>
+        <a class="link-arrow" href="about/index.html">About 3DEO <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RE-EDUCATION: WHAT GEIGER-MODE REALLY IS ============ -->
+<section class="section" data-screen-label="Home / Geiger-mode">
+  <div class="wrap">
+    <div class="edu-head" data-reveal>
+      <div class="eyebrow">The misconception</div>
+      <h2>You probably think you know<br>what Geiger-mode lidar is.</h2>
+      <p class="lead measure">Most of what the industry "knows" comes from early systems that never delivered on the promise. Modern Geiger-mode is a different animal. Here's the honest comparison.</p>
+    </div>
+
+    <div class="compare grid cols-2" data-reveal>
+      <div class="compare-col compare-old">
+        <div class="tag">Conventional / linear-mode</div>
+        <ul class="ticklist">
+          <li>Needs thousands of photons per return — limiting altitude and speed</li>
+          <li>Low flying, narrow swaths, repeated passes</li>
+          <li>Expensive to cover wide areas at useful density</li>
+          <li>Shadows under canopy and in urban canyons</li>
+        </ul>
+      </div>
+      <div class="compare-col compare-new">
+        <div class="tag tag-accent">3DEO Geiger-mode</div>
+        <ul class="ticklist ticklist-pos">
+          <li>Detects a return from just a <strong>few photons</strong> — fly higher, faster, wider</li>
+          <li>High resolution from <strong>30,000+ ft</strong> at 1-foot detail</li>
+          <li><strong>Agile scanning</strong> captures 4–6 viewpoints in a single pass</li>
+          <li>Mitigates shadows; finished, validated point clouds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="edu-cta" data-reveal>
+      <a class="btn btn-primary btn-lg" href="technology/geiger-mode.html">How Geiger-mode actually works <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="technology/agile-scanning.html">Agile geo-referenced scanning <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5-STAGE MODEL ============ -->
+<section class="section bg-dark" data-screen-label="Home / Five Stages">
+  <div class="wrap">
+    <div class="edu-head edu-head-dark" data-reveal>
+      <div class="eyebrow no-tick" style="color:var(--accent)">Consulting → Equipment → Collection → Processing → Answers</div>
+      <h2>We help at every stage<br>of the collection process.</h2>
+      <p class="lead measure" style="color:rgba(234,241,250,.78)">Most providers sell you a box. We meet you wherever you are — and take you all the way to actionable answers. Tell us your stage and we'll point to the best next step.</p>
+    </div>
+
+    <ol class="stages" data-reveal>
+      <li class="stage">
+        <span class="stage-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="20" r="9"/><circle cx="26" cy="20" r="9"/></svg></span>
+        <span class="stage-no">01</span>
+        <h4>Consulting</h4>
+        <p>Scope constraints, timelines, and success criteria with people who've solved it before.</p>
+      </li>
+      <li class="stage">
+        <span class="stage-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="12" width="24" height="16" rx="2"/><circle cx="20" cy="20" r="4.5"/></svg></span>
+        <span class="stage-no">02</span>
+        <h4>Equipment</h4>
+        <p>Purpose-built Geiger-mode systems matched to your environment and altitude.</p>
+      </li>
+      <li class="stage">
+        <span class="stage-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="20" cy="9" r="2.4" fill="currentColor" stroke="none"/><line x1="20" y1="11" x2="11" y2="30"/><line x1="20" y1="11" x2="20" y2="32"/><line x1="20" y1="11" x2="29" y2="30"/><circle cx="11" cy="31" r="1.7" fill="currentColor" stroke="none"/><circle cx="20" cy="33" r="1.7" fill="currentColor" stroke="none"/><circle cx="29" cy="31" r="1.7" fill="currentColor" stroke="none"/></svg></span>
+        <span class="stage-no">03</span>
+        <h4>Collection</h4>
+        <p>Acquire high-density data where it matters — wide-area, high-altitude, fast.</p>
+      </li>
+      <li class="stage">
+        <span class="stage-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="28" cy="12" r="2"/><circle cx="12" cy="20" r="2"/><circle cx="20" cy="20" r="2"/><circle cx="28" cy="20" r="2"/><circle cx="12" cy="28" r="2"/><circle cx="20" cy="28" r="2"/><circle cx="28" cy="28" r="2"/></svg></span>
+        <span class="stage-no">04</span>
+        <h4>Processing</h4>
+        <p>Acadia turns raw single-photon returns into finished, validated point clouds.</p>
+      </li>
+      <li class="stage">
+        <span class="stage-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="20" cy="20" r="11"/><circle cx="20" cy="20" r="5"/><circle cx="20" cy="20" r="1.6" fill="currentColor" stroke="none"/></svg></span>
+        <span class="stage-no">05</span>
+        <h4>Answers</h4>
+        <p>Actionable insights and deliverables in the formats your decision-makers need.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ SYSTEMS LINEUP ============ -->
+<section class="section" data-screen-label="Home / Systems">
+  <div class="wrap">
+    <div class="row-head" data-reveal>
+      <div>
+        <div class="eyebrow">Lidar systems</div>
+        <h2>One architecture, three altitudes.</h2>
+      </div>
+      <a class="link-arrow hide-mobile" href="products/systems.html">Compare all systems <span class="arrow">→</span></a>
+    </div>
+
+    <div class="grid cols-3" data-reveal>
+      <a class="card sys-card" href="products/zion.html">
+        <div class="card-media"><img src="https://3deogw.com/assets/zion.webp" alt="Zion lidar system"></div>
+        <div class="card-pad">
+          <div class="sys-top"><h3>Zion</h3><span class="tag">3,000–12,000 ft</span></div>
+          <p>Compact vertical system for unpressurized cabins. 9–12M points/sec.</p>
+          <div class="spec-list">
+            <div class="spec-row"><span class="k">Vertical precision</span><span class="v">5 cm</span></div>
+            <div class="spec-row"><span class="k">Detector pixels</span><span class="v">4,000</span></div>
+            <div class="spec-row"><span class="k">Weight</span><span class="v">213 lbs</span></div>
+          </div>
+          <span class="link-arrow">View Zion <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a class="card sys-card" href="products/wrangell.html">
+        <div class="card-media"><img src="https://3deogw.com/assets/wrangell.webp" alt="Wrangell lidar system"></div>
+        <div class="card-pad">
+          <div class="sys-top"><h3>Wrangell</h3><span class="tag">5,000–16,000 ft</span></div>
+          <p>Pod-mounted horizontal system for operational flexibility. 16–20M points/sec.</p>
+          <div class="spec-list">
+            <div class="spec-row"><span class="k">Vertical precision</span><span class="v">5 cm</span></div>
+            <div class="spec-row"><span class="k">Detector pixels</span><span class="v">8,000</span></div>
+            <div class="spec-row"><span class="k">Weight</span><span class="v">295 lbs</span></div>
+          </div>
+          <span class="link-arrow">View Wrangell <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a class="card sys-card" href="products/sequoia.html">
+        <div class="card-media"><img src="https://3deogw.com/assets/sequoia.webp" alt="Sequoia lidar system"></div>
+        <div class="card-pad">
+          <div class="sys-top"><h3>Sequoia</h3><span class="tag">20,000–50,000 ft</span></div>
+          <p>Long-standoff, pressurized-cabin system. 20–30M points/sec, 900 km²/hr.</p>
+          <div class="spec-list">
+            <div class="spec-row"><span class="k">Vertical precision</span><span class="v">5 cm</span></div>
+            <div class="spec-row"><span class="k">Detector pixels</span><span class="v">8,000</span></div>
+            <div class="spec-row"><span class="k">Weight</span><span class="v">266 lbs</span></div>
+          </div>
+          <span class="link-arrow">View Sequoia <span class="arrow">→</span></span>
+        </div>
+      </a>
+    </div>
+
+    <a class="acadia-band" href="products/acadia.html" data-reveal>
+      <div class="acadia-media"><img src="https://3deogw.com/assets/acadia-surface.webp" alt="Acadia surface model"></div>
+      <div class="acadia-copy">
+        <div class="eyebrow">Software &amp; systems</div>
+        <h3>Acadia turns raw photons into answers.</h3>
+        <p>3DEO's processing suite converts raw lidar into finished, high-density point clouds with derived metadata — reflectivity, height above ground, and point confidence. Scalable across laptop, cluster, and cloud. Exports to LAS &amp; GeoTIFF.</p>
+        <span class="link-arrow">Explore Acadia <span class="arrow">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="section bg-alt" data-screen-label="Home / Industries">
+  <div class="wrap">
+    <div class="row-head" data-reveal>
+      <div>
+        <div class="eyebrow">Industries</div>
+        <h2>Wherever accuracy, scale, or speed matter.</h2>
+      </div>
+      <a class="link-arrow hide-mobile" href="industries/index.html">All industries <span class="arrow">→</span></a>
+    </div>
+
+    <div class="ind-grid" data-reveal>
+      <a class="ind-card" href="industries/forestry.html"><span class="ind-media" style="background-image:url(assets/industries/forestry.webp)"></span><span class="ind-body"><span class="ind-no">01</span><span class="ind-name">Forestry</span><span class="ind-line">Canopy structure &amp; wildfire fuel</span></span></a>
+      <a class="ind-card" href="industries/city-mapping.html"><span class="ind-media" style="background-image:url(assets/industries/city-mapping.webp)"></span><span class="ind-body"><span class="ind-no">02</span><span class="ind-name">City Mapping</span><span class="ind-line">High-density 3D urban models</span></span></a>
+      <a class="ind-card" href="industries/utilities.html"><span class="ind-media" style="background-image:url(assets/industries/utilities.webp)"></span><span class="ind-body"><span class="ind-no">03</span><span class="ind-name">Utilities</span><span class="ind-line">Corridor &amp; vegetation management</span></span></a>
+      <a class="ind-card" href="industries/defense.html"><span class="ind-media" style="background-image:url(assets/industries/defense.webp)"></span><span class="ind-body"><span class="ind-no">04</span><span class="ind-name">Defense</span><span class="ind-line">ISR for DARPA &amp; the US Army</span></span></a>
+      <a class="ind-card" href="industries/intelligence.html"><span class="ind-media" style="background-image:url(assets/industries/intelligence.webp)"></span><span class="ind-body"><span class="ind-no">05</span><span class="ind-name">Intelligence</span><span class="ind-line">Wide-area situational awareness</span></span></a>
+      <a class="ind-card" href="industries/disaster-relief.html"><span class="ind-media" style="background-image:url(assets/industries/disaster-relief.webp)"></span><span class="ind-body"><span class="ind-no">06</span><span class="ind-name">Disaster Relief</span><span class="ind-line">Flood modeling &amp; rapid damage maps</span></span></a>
+      <a class="ind-card" href="industries/oil-and-gas.html"><span class="ind-media" style="background-image:url(assets/industries/oil-and-gas.webp)"></span><span class="ind-body"><span class="ind-no">07</span><span class="ind-name">Oil &amp; Gas</span><span class="ind-line">Pipeline &amp; facility survey</span></span></a>
+      <a class="ind-card" href="industries/archeology.html"><span class="ind-media" style="background-image:url(assets/industries/archeology.webp)"></span><span class="ind-body"><span class="ind-no">08</span><span class="ind-name">Archeology</span><span class="ind-line">Digital defoliation reveals terrain</span></span></a>
+      <a class="ind-card ind-card-req" href="industries/request.html"><span class="ind-body"><span class="ind-no">+</span><span class="ind-name">Your industry?</span><span class="ind-line">Let's talk — we probably help <span class="arrow">→</span></span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POINT CLOUDS TEASER ============ -->
+<section class="section" data-screen-label="Home / Point Clouds">
+  <div class="wrap">
+    <div class="row-head" data-reveal>
+      <div>
+        <div class="eyebrow">Point clouds</div>
+        <h2>Don't take our word for it. See the data.</h2>
+        <p class="lead measure">Explore real 3DEO collections. Preview them here, then unlock the full-resolution interactive viewer after a quick confidentiality agreement.</p>
+      </div>
+    </div>
+
+    <div class="grid cols-4" data-reveal>
+      <div class="pc-card" data-nda="https://imagery.3deolidar.com">
+        <div class="card-media ph">CITY MAP PREVIEW</div>
+        <div class="pc-lock"><span class="lk">🔒 Agree to view</span></div>
+        <div class="pc-meta"><strong>City Maps</strong><div class="mono" style="font-size:.7rem;color:var(--muted)">Urban 3D · Acadia</div></div>
+      </div>
+      <div class="pc-card" data-nda="https://imagery.3deolidar.com">
+        <div class="card-media ph">FORESTRY PREVIEW</div>
+        <div class="pc-lock"><span class="lk">🔒 Agree to view</span></div>
+        <div class="pc-meta"><strong>Forestry</strong><div class="mono" style="font-size:.7rem;color:var(--muted)">Canopy · digital defoliation</div></div>
+      </div>
+      <div class="pc-card" data-nda="https://imagery.3deolidar.com">
+        <div class="card-media ph">CORRIDOR PREVIEW</div>
+        <div class="pc-lock"><span class="lk">🔒 Agree to view</span></div>
+        <div class="pc-meta"><strong>Transmission Lines</strong><div class="mono" style="font-size:.7rem;color:var(--muted)">ROW · 100+ ppsm</div></div>
+      </div>
+      <div class="pc-card" data-nda="https://imagery.3deolidar.com">
+        <div class="card-media ph">ARCHEOLOGY PREVIEW</div>
+        <div class="pc-lock"><span class="lk">🔒 Agree to view</span></div>
+        <div class="pc-meta"><strong>Archeology</strong><div class="mono" style="font-size:.7rem;color:var(--muted)">Bare-earth terrain</div></div>
+      </div>
+    </div>
+    <div class="edu-cta" data-reveal>
+      <a class="btn btn-primary btn-lg" href="point-clouds/index.html">Browse all point clouds <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HELP / CTA ============ -->
+<section class="section bg-dark cta-section" data-screen-label="Home / CTA">
+  <div class="wrap">
+    <div class="edu-head edu-head-dark center mx-auto" data-reveal style="max-width:760px">
+      <div class="eyebrow no-tick" style="color:var(--accent);justify-content:center">At 3DEO, we love to help</div>
+      <h2>Tell us which fits you best.</h2>
+      <p class="lead" style="color:rgba(234,241,250,.78)">Whatever stage you're in, there's a right next step — and we'll get you exactly what you need.</p>
+    </div>
+    <div class="grid cols-3 cta-grid" data-reveal>
+      <a class="cta-card" href="about/contact.html">
+        <div class="cta-k">Just want to talk to a real expert?</div>
+        <h3>Book a Call</h3>
+        <p>Talk through environment, constraints, and collection goals.</p>
+        <span class="link-arrow">Book a call <span class="arrow">→</span></span>
+      </a>
+      <a class="cta-card" href="point-clouds/request.html">
+        <div class="cta-k">Want to see actual data?</div>
+        <h3>Send Me Data Samples</h3>
+        <p>Get representative point clouds for feasibility and workflow review.</p>
+        <span class="link-arrow">Request samples <span class="arrow">→</span></span>
+      </a>
+      <a class="cta-card" href="about/contact.html">
+        <div class="cta-k">Need data collected?</div>
+        <h3>Apply for a Pilot</h3>
+        <p>Define a pilot with timeline, success criteria, and deliverables.</p>
+        <span class="link-arrow">Apply now <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- explorer mount -->
+<div id="explorer-root"></div>
+
+<!-- page-specific styles -->
+<style>
+/* ============ HERO — immersive (Option A) ============ */
+.hero{position:relative;min-height:640px;display:flex;flex-direction:column;overflow:hidden;isolation:isolate;background:var(--navy-dark);}
+.hero .ha-bg{position:absolute;inset:0;z-index:0;background:url(https://3deogw.com/assets/sequoia-missouri-banner.webp) center/cover no-repeat;transform:scale(1.04);}
+.hero .ha-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(8,17,33,.93) 0%,rgba(8,17,33,.8) 34%,rgba(10,21,40,.42) 64%,rgba(10,21,40,.25) 100%),linear-gradient(0deg,rgba(7,15,28,.92) 0%,rgba(7,15,28,0) 42%);}
+.hero .ha-grain{position:absolute;inset:0;z-index:1;opacity:.5;mix-blend-mode:screen;background-image:radial-gradient(circle at center,rgba(63,181,230,.5) .8px,transparent 1.4px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 78% 28%,#000,transparent 72%);mask-image:radial-gradient(ellipse 60% 70% at 78% 28%,#000,transparent 72%);}
+.ha-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,5vw,76px) var(--gutter) 0;max-width:1500px;width:100%;margin:0 auto;}
+.ha-eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#7fdcff;display:inline-flex;align-items:center;gap:.7em;margin-bottom:1.6rem;}
+.ha-eyebrow::before{content:"";width:30px;height:1px;background:#7fdcff;}
+.hero h1{color:#fff;font-size:clamp(3rem,6.6vw,6rem);line-height:.98;letter-spacing:-.025em;max-width:16ch;margin:0 0 1.5rem;text-shadow:0 2px 40px rgba(0,0,0,.4);}
+.hero .ha-lead{color:rgba(234,241,250,.9);font-size:clamp(1.1rem,1.5vw,1.32rem);line-height:1.5;max-width:46ch;margin:0 0 2.2rem;}
+.hero .ha-lead strong{color:#fff;}
+.ha-btns{display:flex;flex-wrap:wrap;gap:.9rem;}
+.hero .btn-glass{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.34);color:#fff;backdrop-filter:blur(6px);}
+.hero .btn-glass:hover{background:rgba(255,255,255,.16);border-color:#fff;}
+.ha-coords{position:absolute;top:clamp(20px,3vw,32px);right:var(--gutter);z-index:3;text-align:right;white-space:nowrap;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;color:rgba(234,241,250,.62);line-height:1.8;}
+.ha-coords .cx{color:#7fdcff;}
+.ha-telemetry{position:relative;z-index:2;margin-top:auto;display:flex;align-items:center;gap:clamp(1.4rem,3vw,3rem);flex-wrap:wrap;padding:1.3rem var(--gutter);border-top:1px solid rgba(127,220,255,.22);background:linear-gradient(180deg,rgba(8,17,33,0),rgba(6,13,26,.66));backdrop-filter:blur(3px);}
+.ha-telemetry .t-stat{display:flex;flex-direction:column;gap:.1rem;}
+.ha-telemetry .t-num{font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,2.4vw,2.1rem);color:#fff;line-height:1;letter-spacing:-.02em;}
+.ha-telemetry .t-lab{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(234,241,250,.6);margin-top:.35rem;}
+.ha-telemetry .t-div{width:1px;align-self:stretch;background:rgba(255,255,255,.14);}
+.ramp-legend{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;color:rgba(234,241,250,.72);}
+.ramp-legend .ramp{width:96px;height:7px;border-radius:100px;background:linear-gradient(90deg,var(--s1),var(--s2),var(--s3),var(--s4),var(--s5));}
+.ha-telemetry .ramp-legend{margin-left:auto;}
+@media(max-width:760px){.ha-telemetry .ramp-legend{margin-left:0;}.ha-coords{display:none;}}
+
+.intro-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start;}
+.intro-statement{font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,2.1rem);line-height:1.22;letter-spacing:-.015em;color:var(--ink);margin:0;}
+.intro-aside p{font-size:.98rem;}
+@media(max-width:760px){.intro-grid{grid-template-columns:1fr;gap:1.6rem;}}
+
+.edu-head{max-width:760px;margin-bottom:clamp(2.4rem,4vw,3.6rem);}
+.edu-head .eyebrow{margin-bottom:1.1rem;}
+.edu-head h2{margin-bottom:1.1rem;}
+.edu-head-dark{}
+.compare-col{padding:clamp(1.6rem,2.6vw,2.4rem);border-radius:var(--radius-lg);border:1px solid var(--line);}
+.compare-old{background:var(--bg-alt);}
+.compare-new{background:color-mix(in srgb,var(--accent) 6%,var(--bg));border-color:color-mix(in srgb,var(--accent) 28%,var(--line));}
+.compare-col .tag{margin-bottom:1.3rem;}
+.tag-accent{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,var(--line));}
+.ticklist{list-style:none;margin:0;padding:0;display:grid;gap:.95rem;}
+.ticklist li{position:relative;padding-left:1.8rem;font-size:.98rem;color:var(--ink-2);line-height:1.5;}
+.ticklist li::before{content:"×";position:absolute;left:0;top:-1px;font-family:var(--font-mono);color:var(--muted);font-weight:600;}
+.ticklist-pos li::before{content:"→";color:var(--accent);}
+.edu-cta{display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center;margin-top:clamp(2rem,3vw,2.8rem);}
+
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(255,255,255,.14);position:relative;}
+.stage{padding:2rem 1.4rem 0;border-left:1px solid rgba(255,255,255,.14);position:relative;}
+.stage:first-child{border-left:0;padding-left:0;}
+.stage-glyph{display:block;width:42px;height:42px;color:var(--accent);margin-bottom:1.1rem;position:relative;z-index:1;}
+.stage-glyph svg{width:100%;height:100%;display:block;}
+/* scan-path connector through the glyph centers */
+.stages::before{content:"";position:absolute;top:calc(2rem + 21px);left:0;right:0;height:0;border-top:1px dashed rgba(63,181,230,.45);z-index:0;}
+.stage-no{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;color:var(--accent);display:block;margin-bottom:.7rem;}
+.stage h4{color:#fff;margin-bottom:.5rem;}
+.stage p{font-size:.9rem;color:rgba(234,241,250,.66);line-height:1.5;}
+@media(max-width:900px){.stages{grid-template-columns:1fr 1fr;}.stages::before{display:none;}.stage{border-left:0;border-top:1px solid rgba(255,255,255,.14);padding:1.6rem 0;}.stage:first-child{border-top:0;}}
+@media(max-width:520px){.stages{grid-template-columns:1fr;}}
+
+.row-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:clamp(2rem,3.5vw,3rem);}
+.row-head .eyebrow{margin-bottom:.9rem;}
+.row-head h2{max-width:18ch;}
+.sys-card{display:flex;flex-direction:column;}
+.sys-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.6rem;}
+.sys-card .spec-list{margin:1.1rem 0 1.3rem;}
+.sys-card .link-arrow{margin-top:auto;}
+
+.acadia-band{display:grid;grid-template-columns:1fr 1.1fr;gap:0;margin-top:clamp(2rem,3vw,2.6rem);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg);transition:border-color .2s,box-shadow .2s;}
+.acadia-band:hover{border-color:var(--line-strong);box-shadow:var(--shadow);}
+.acadia-media{background:var(--navy-dark);min-height:280px;}
+.acadia-media img{width:100%;height:100%;object-fit:cover;}
+.acadia-copy{padding:clamp(1.8rem,3.5vw,3rem);align-self:center;}
+.acadia-copy .eyebrow{margin-bottom:1rem;}
+.acadia-copy h3{margin-bottom:.9rem;}
+@media(max-width:760px){.acadia-band{grid-template-columns:1fr;}.acadia-media{min-height:200px;}}
+
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px);}
+.ind-card{position:relative;display:flex;align-items:flex-end;min-height:210px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);background:var(--navy-dark);isolation:isolate;}
+.ind-media{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);transition:transform .6s ease;z-index:0;}
+.ind-card:hover .ind-media{transform:scale(1.08);}
+.ind-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,21,37,.05) 0%,rgba(10,21,37,.25) 45%,rgba(8,17,30,.9) 100%);transition:background .25s;}
+.ind-card:hover::after{background:linear-gradient(180deg,rgba(10,21,37,.05) 0%,rgba(13,40,72,.45) 45%,rgba(8,17,30,.94) 100%);}
+.ind-body{position:relative;z-index:2;padding:1.3rem 1.35rem;display:flex;flex-direction:column;gap:.3rem;width:100%;}
+.ind-no{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--accent);filter:brightness(1.5);}
+.ind-name{font-family:var(--font-display);font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-.01em;}
+.ind-line{font-size:.86rem;color:rgba(234,241,250,.78);}
+.ind-card-req{align-items:center;justify-content:center;background:color-mix(in srgb,var(--accent) 12%,var(--navy-dark));border-color:color-mix(in srgb,var(--accent) 40%,var(--line));}
+.ind-card-req::after{display:none;}
+.ind-card-req .ind-body{align-items:flex-start;}
+.ind-card-req .ind-name{color:#fff;}
+.ind-card-req .ind-line{color:rgba(234,241,250,.85);}
+@media(max-width:780px){.ind-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.ind-grid{grid-template-columns:1fr;}}
+
+.cta-grid{margin-top:clamp(2.4rem,4vw,3.4rem);}
+.cta-card{display:flex;flex-direction:column;gap:.5rem;padding:clamp(1.6rem,2.6vw,2.2rem);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-lg);background:rgba(255,255,255,.03);transition:background .18s,border-color .18s,transform .18s;}
+.cta-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.32);transform:translateY(-3px);}
+.cta-k{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;}
+.cta-card h3{color:#fff;margin:.1rem 0 .3rem;}
+.cta-card p{color:rgba(234,241,250,.7);font-size:.94rem;flex-grow:1;}
+.cta-card .link-arrow{color:#fff;}
+</style>
+
+<!-- scripts -->
+<script src="js/site.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="js/tweaks-panel.jsx"></script>
+<script type="text/babel" src="js/explorer.jsx"></script>
+<script>
+(async () => {
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  @page { margin: 0.5cm; }\n  html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }\n  section, article, figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
