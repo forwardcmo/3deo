@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Wildfire Fuel Mapping, Sierra Nevada · 3DEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1f4780; --navy-dark:#0e2547; --navy-deep:#163764;
+  --s1:#27409c; --s2:#1f97d4; --s3:#22c39a; --s4:#e0c63f; --s5:#e8643f;
+  --bg:#fff; --bg-alt:#f2f5f9; --ink:#0d1b30; --ink-2:#2c3b51; --muted:#5f6f88;
+  --line:#e4eaf1; --line-2:#cdd6e2; --accent:#0091c7; --accent-h:#0079a6;
+  --fill:#fff3cf; --fill-line:#e0b53a;
+  --font-d:'Archivo',system-ui,sans-serif; --font-b:'Hanken Grotesk',system-ui,sans-serif; --font-m:'IBM Plex Mono',ui-monospace,monospace;
+  --radius:4px; --radius-lg:8px;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg-alt);color:var(--ink);font-family:var(--font-b);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:var(--font-d);color:var(--ink);margin:0;line-height:1.06;letter-spacing:-.02em;font-weight:800;}
+p{margin:0 0 1em;color:var(--ink-2);text-wrap:pretty;}
+strong{color:var(--ink);}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:clamp(20px,5vw,48px);}
+.eyebrow{font-family:var(--font-m);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.6em;}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);}
+.mono{font-family:var(--font-m);}
+
+/* fill-in + guidance markers */
+.fill{background:var(--fill);border-bottom:1.5px dashed var(--fill-line);border-radius:2px;padding:0 .25em;color:#5a4a12;font-style:normal;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.hint{font-family:var(--font-m);font-size:.74rem;line-height:1.5;color:var(--muted);background:#eef3f8;border-left:2px solid var(--accent);padding:.5rem .7rem;margin:0 0 1rem;border-radius:0 var(--radius) var(--radius) 0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.hint b{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.68rem;display:block;margin-bottom:.15rem;}
+
+/* how-to banner (screen only) */
+.howto{background:var(--navy-dark);color:#eaf1fa;}
+.howto .wrap{padding-block:1.4rem 1.5rem;display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:flex-start;}
+.howto h2{color:#fff;font-size:1.05rem;margin-bottom:.5rem;}
+.howto .legend{font-size:.86rem;color:rgba(234,241,250,.82);max-width:62ch;}
+.howto .legend p{color:rgba(234,241,250,.82);margin:.2rem 0;}
+.howto .sample{background:var(--fill);color:#5a4a12;border-bottom:1.5px dashed var(--fill-line);padding:0 .25em;border-radius:2px;}
+
+/* hero */
+.hero{background:var(--navy-dark);color:#eaf1fa;position:relative;overflow:hidden;}
+.dotfield{position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:radial-gradient(circle at center,color-mix(in srgb,var(--accent) 55%,transparent) 1px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 85% 20%,#000,transparent 72%);mask-image:radial-gradient(ellipse 70% 80% at 85% 20%,#000,transparent 72%);}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(40px,6vw,72px) 0;}
+.breadcrumb{font-family:var(--font-m);font-size:.74rem;letter-spacing:.06em;color:rgba(234,241,250,.6);margin-bottom:1.6rem;}
+.breadcrumb a{color:rgba(234,241,250,.6);text-decoration:none;}
+.hero .eyebrow{color:#7fdcff;margin-bottom:1.2rem;}
+.hero .eyebrow::before{background:#7fdcff;}
+.hero h1{color:#fff;font-size:clamp(2.1rem,4.4vw,3.4rem);max-width:20ch;margin-bottom:1rem;}
+.hero .dek{font-size:clamp(1.05rem,1.6vw,1.3rem);color:rgba(234,241,250,.82);max-width:60ch;margin-bottom:2rem;}
+/* results strip */
+.results{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.16);margin-top:.5rem;}
+.results .r{padding:1.4rem 1.2rem 1.6rem;border-left:1px solid rgba(255,255,255,.16);}
+.results .r:first-child{border-left:0;padding-left:0;}
+.results .num{font-family:var(--font-d);font-weight:800;font-size:clamp(1.7rem,2.8vw,2.4rem);color:#7fdcff;line-height:1;letter-spacing:-.02em;display:block;margin-bottom:.45rem;}
+.results .lab{font-family:var(--font-m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(234,241,250,.66);line-height:1.4;}
+@media(max-width:760px){.results{grid-template-columns:1fr 1fr;}.results .r{border-left:0;padding-inline:0;}}
+
+/* body layout */
+.body{background:var(--bg);padding-block:clamp(40px,6vw,72px);}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:clamp(32px,5vw,64px);align-items:start;}
+@media(max-width:880px){.grid{grid-template-columns:1fr;}}
+section.block{margin-bottom:2.6rem;break-inside:avoid;}
+section.block:last-child{margin-bottom:0;}
+.block .eyebrow{margin-bottom:.9rem;}
+.block h2{font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:1rem;}
+.block p{font-size:1.04rem;}
+
+/* image placeholder = shot list */
+.ph{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line-2);background:repeating-linear-gradient(135deg,var(--bg-alt),var(--bg-alt) 12px,#e8edf3 12px,#e8edf3 24px);min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.4rem;margin:1.2rem 0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.ph .pk{font-family:var(--font-m);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+.ph .pd{font-size:.9rem;color:var(--ink-2);max-width:46ch;}
+.ph .pd .fill{font-size:.86rem;}
+
+/* pull quote */
+.quote{background:var(--bg-alt);border-radius:var(--radius-lg);padding:clamp(1.6rem,3vw,2.4rem);margin:2rem 0;break-inside:avoid;}
+.quote blockquote{margin:0 0 1rem;font-family:var(--font-d);font-weight:700;font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.3;color:var(--ink);letter-spacing:-.01em;}
+.quote .who{font-family:var(--font-m);font-size:.78rem;letter-spacing:.04em;color:var(--muted);}
+.quote .who b{color:var(--ink);font-weight:600;}
+
+/* facts sidebar */
+.facts{position:sticky;top:24px;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;}
+.facts h3{font-family:var(--font-m);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:1rem 1.2rem;border-bottom:1px solid var(--line);background:var(--bg-alt);}
+.facts dl{margin:0;padding:.4rem 1.2rem 1rem;}
+.facts .row{padding:.7rem 0;border-bottom:1px solid var(--line);}
+.facts .row:last-child{border-bottom:0;}
+.facts dt{font-family:var(--font-m);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
+.facts dd{margin:0;font-weight:600;font-size:.95rem;color:var(--ink);}
+@media(max-width:880px){.facts{position:static;}}
+
+/* cta band */
+.cta{background:var(--navy-dark);color:#eaf1fa;text-align:center;padding-block:clamp(36px,5vw,60px);}
+.cta h2{color:#fff;font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.8rem;}
+.cta p{color:rgba(234,241,250,.8);max-width:50ch;margin:0 auto 1.6rem;}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--font-b);font-weight:600;font-size:1.02rem;padding:1em 1.7em;border-radius:var(--radius);background:var(--accent);color:#fff;text-decoration:none;border:1px solid var(--accent);}
+.btn:hover{background:var(--accent-h);border-color:var(--accent-h);}
+
+.no-print{}
+@media print{
+  body{background:#fff;font-size:12pt;}
+  .no-print{display:none !important;}
+  .hero,.cta{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .wrap{max-width:none;padding-inline:0;}
+  .grid{grid-template-columns:1fr;gap:1.5rem;}
+  .facts{position:static;}
+  @page{margin:0.7in;}
+  section.block,.quote,.ph,.facts,.results .r{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== EXAMPLE NOTICE (screen only) ===== -->
+<div class="howto no-print">
+  <div class="wrap">
+    <div style="flex:1;min-width:280px">
+      <h2>Worked example — for reference</h2>
+      <div class="legend">
+        <p>This is a <strong style="color:#fff">fully filled-in sample</strong> built from the blank case-study template, to show the team how a finished piece should read and how long each section runs.</p>
+        <p>The story, client, and figures below are <strong style="color:#fff">illustrative</strong> — replace with a real engagement before publishing.</p>
+      </div>
+    </div>
+    <div style="min-width:220px">
+      <h2>Format</h2>
+      <div class="legend">
+        <p>Challenge → Approach → Results → Quote → CTA, ~600 words. This banner is hidden in print/PDF.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="dotfield"></div>
+  <div class="wrap">
+    <nav class="breadcrumb"><a href="#">Home</a> / <a href="#">Resources</a> / <a href="#">Case Studies</a> / Sierra Nevada Wildfire Fuel Mapping</nav>
+    <div class="eyebrow">Forestry &amp; Wildfire · Case Study</div>
+    <h1>Mapping 1.2 million acres of wildfire fuel in a single season.</h1>
+    <p class="dek">A state forestry agency needed current, high-resolution canopy and terrain data across rugged backcountry to model fire behavior — 3DEO delivered the full survey in one flight season, at roughly a quarter of the prior cost per square mile.</p>
+
+    <div class="results">
+      <div class="r"><span class="num">1.2M</span><span class="lab">Acres mapped</span></div>
+      <div class="r"><span class="num">4×</span><span class="lab">Faster than prior survey</span></div>
+      <div class="r"><span class="num">~8 cm</span><span class="lab">Vertical accuracy</span></div>
+      <div class="r"><span class="num">1 season</span><span class="lab">Collection to delivery</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== BODY ===== -->
+<div class="body">
+  <div class="wrap grid">
+    <main>
+
+      <section class="block">
+        <div class="eyebrow">The challenge</div>
+        <h2>What the client was up against</h2>
+        <p>After a series of record fire seasons, a state forestry agency needed to rebuild its wildfire fuel models on current data. That meant <strong>high-density canopy structure and bare-earth terrain</strong> across 1.2 million acres of steep, heavily vegetated backcountry — much of it hard to reach and frequently under smoke or haze.</p>
+        <p>Their previous approach, conventional linear-mode lidar flown low and slow, would have taken <strong>multiple seasons and several aircraft</strong> to cover the region, with repeated passes to fill shadowed canyons. The cost and timeline simply didn't fit a single pre-season planning window — and stale data meant fire behavior models built on the landscape of years past.</p>
+      </section>
+
+      <figure class="ph" style="background:none;border:0;padding:0;min-height:0;display:block">
+        <img src="../assets/case-forestry.webp" alt="Forested mountain terrain surveyed for wildfire fuel mapping" style="width:100%;height:auto;border-radius:var(--radius-lg);border:1px solid var(--line-2);display:block">
+        <figcaption style="font-family:var(--font-m);font-size:.72rem;color:var(--muted);margin-top:.6rem;letter-spacing:.02em">Sierra Nevada survey region — steep, densely forested terrain across 1.2M acres.</figcaption>
+      </figure>
+
+      <section class="block">
+        <div class="eyebrow">The approach</div>
+        <h2>How 3DEO solved it</h2>
+        <p>3DEO scoped the collection with the agency's fire-modeling team, then flew <strong>Sequoia at over 30,000 feet</strong> — capturing high-density single-photon lidar across the entire region in a fraction of the flight hours a linear system would require. Geiger-mode sensitivity meant strong returns through canopy gaps and thin haze, where a conventional sensor would have needed to drop altitude and refly.</p>
+        <p>Agile, geo-referenced scanning let the crew concentrate point density on the steepest, most shadow-prone canyons in a single pass, minimizing the data gaps that normally force re-collection. <strong>Acadia</strong> then processed the raw returns into validated, classified point clouds and bare-earth models — delivered in the formats the agency's fire-behavior software ingests directly.</p>
+      </section>
+
+      <figure class="ph" style="background:none;border:0;padding:0;min-height:0;display:block">
+        <img src="https://3deogw.com/assets/sequoia-missouri-banner.webp" alt="High-density lidar point cloud colored by elevation" style="width:100%;height:auto;border-radius:var(--radius-lg);border:1px solid var(--line-2);display:block">
+        <figcaption style="font-family:var(--font-m);font-size:.72rem;color:var(--muted);margin-top:.6rem;letter-spacing:.02em">Representative high-density point cloud, colored by elevation · 100+ points per square meter.</figcaption>
+      </figure>
+
+      <section class="block">
+        <div class="eyebrow">The results</div>
+        <h2>What it delivered</h2>
+        <p>3DEO delivered validated point clouds at <strong>100+ points per square meter and ~8 cm vertical accuracy across the full 1.2 million acres in a single flight season</strong> — roughly 4× faster than the agency's prior workflow and at about a quarter of the cost per square mile, with no re-collection flights required.</p>
+        <p>With current, uniform-quality data in hand, the agency rebuilt its <strong>fuel and fire-behavior models ahead of the season</strong>, prioritized fuel-reduction treatments by modeled risk, and gave incident commanders accurate terrain for planning — outcomes that simply weren't reachable on the old multi-season timeline.</p>
+      </section>
+
+      <div class="quote">
+        <blockquote>“We got uniform, high-density coverage of terrain we'd never been able to map well — an entire season's survey, delivered before our planning window instead of after it. The fuel models we built on it are the most current we've ever had going into fire season.”</blockquote>
+        <div class="who"><b>[ Client name ]</b> — Fire &amp; Resource Assessment Lead, State Forestry Agency</div>
+      </div>
+
+      <section class="block">
+        <div class="eyebrow">Why it matters</div>
+        <h2>The takeaway for teams like yours</h2>
+        <p>If you need current, high-resolution forest structure across a large or hard-to-reach landscape — and the timeline or budget for conventional lidar doesn't work — 3DEO's high-altitude, single-photon approach can cover more ground, faster, with the density fire and resource models demand.</p>
+      </section>
+
+    </main>
+
+    <!-- facts sidebar -->
+    <aside>
+      <div class="facts">
+        <h3>Project facts</h3>
+        <dl>
+          <div class="row"><dt>Client</dt><dd>State forestry agency <span style="color:var(--muted);font-weight:400">(illustrative)</span></dd></div>
+          <div class="row"><dt>Industry</dt><dd>Forestry &amp; Wildfire</dd></div>
+          <div class="row"><dt>Location</dt><dd>Sierra Nevada, California</dd></div>
+          <div class="row"><dt>System used</dt><dd>Sequoia</dd></div>
+          <div class="row"><dt>Area covered</dt><dd>1.2M acres</dd></div>
+          <div class="row"><dt>Point density</dt><dd>100+ pts/m²</dd></div>
+          <div class="row"><dt>Accuracy</dt><dd>~8 cm vertical</dd></div>
+          <div class="row"><dt>Timeline</dt><dd>Single flight season</dd></div>
+          <div class="row"><dt>Deliverables</dt><dd>Classified LAS, bare-earth DEM (GeoTIFF), canopy metrics</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Have a forestry project like this?</h2>
+    <p>Tell us about your area of interest and we'll show you what high-density, high-altitude lidar can deliver for your fire and resource models.</p>
+    <a class="btn" href="#">Book a call →</a>
+  </div>
+</section>
+
+</body>
+</html>
