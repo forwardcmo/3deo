@@ -163,6 +163,10 @@ section{position:relative;}
    needs the same on-dark treatment to keep text white (not dark ink). */
 .cta-band .btn-outline{color:#fff;border-color:rgba(255,255,255,.32);}
 .cta-band .btn-outline:hover{border-color:#fff;color:#fff;}
+/* Dark page heroes (.page-hero.dark) are navy without .bg-dark, so their
+   outline button needs the same on-dark treatment to stay readable. */
+.page-hero.dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.32);}
+.page-hero.dark .btn-outline:hover{border-color:#fff;color:#fff;}
 .btn-lg{padding:1.05em 1.7em;font-size:1.02rem;}
 
 /* link with arrow */
