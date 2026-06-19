@@ -119,8 +119,12 @@ strong{color:var(--ink);font-weight:700;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter);}
 .wrap-wide{max-width:1440px;margin:0 auto;padding-inline:var(--gutter);}
 section{position:relative;}
-.section{padding-block:clamp(64px,9vw,128px);}
-.section-sm{padding-block:clamp(48px,6vw,84px);}
+.section{padding-block:clamp(44px,6vw,84px);}
+.section-sm{padding-block:clamp(32px,4.5vw,60px);}
+/* When two plain (no background) sections stack, collapse the second's top
+   padding so content blocks don't drift apart by a double dose of padding.
+   Sections with a bg- treatment keep their full padding to preserve rhythm. */
+.section:not([class*="bg-"]) + .section:not([class*="bg-"]){padding-top:0;}
 .bg-alt{background:var(--bg-alt);}
 .bg-panel{background:var(--bg-panel);}
 .bg-dark{background:var(--navy-dark);color:var(--on-dark);}
@@ -155,6 +159,10 @@ section{position:relative;}
 .btn-light:hover{background:rgba(255,255,255,.88);}
 .bg-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.32);}
 .bg-dark .btn-outline:hover{border-color:#fff;}
+/* The CTA band is navy without a .bg-dark ancestor, so its outline button
+   needs the same on-dark treatment to keep text white (not dark ink). */
+.cta-band .btn-outline{color:#fff;border-color:rgba(255,255,255,.32);}
+.cta-band .btn-outline:hover{border-color:#fff;color:#fff;}
 .btn-lg{padding:1.05em 1.7em;font-size:1.02rem;}
 
 /* link with arrow */
