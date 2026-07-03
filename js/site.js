@@ -65,9 +65,11 @@
       {t:'White Papers', s:'Peer-grade technical depth', h:'resources/whitepapers.html'},
       {t:'Case Studies', s:'Real collections, real results', h:'resources/case-studies.html'},
       {t:'Presentations', s:'Talks & briefings', h:'resources/presentations.html'},
+      {t:'ISPRS 2026', s:'Meet us at the show', h:'isprs.html'},
     ]},
     {label:'About', href:'about/index.html', items:[
       {t:'Company', s:'MIT Lincoln Lab spin-out', h:'about/index.html'},
+      {t:'News & Events', s:'Publications & upcoming shows', h:'about/news.html'},
       {t:'Contact Us', h:'about/contact.html'},
       {t:'Join Our Team', h:'about/careers.html'},
       {t:'Compliance', h:'about/compliance.html'},
@@ -134,9 +136,9 @@
       <div class="footer-col"><h4>Technology</h4>
         <a href="${u('technology/geiger-mode.html')}">Geiger-mode Lidar</a>
         <a href="${u('technology/agile-scanning.html')}">Agile Scanning</a>
-        <a href="${u('products/acadia.html')}">Acadia Software</a>
       </div>
       <div class="footer-col"><h4>Products</h4>
+        <a href="${u('products/acadia.html')}">Acadia Software</a>
         <a href="${u('products/zion.html')}">Zion</a>
         <a href="${u('products/wrangell.html')}">Wrangell</a>
         <a href="${u('products/sequoia.html')}">Sequoia</a>
@@ -146,17 +148,18 @@
         <a href="${u('industries/index.html')}">Industries</a>
         <a href="${u('point-clouds/index.html')}">Point Clouds</a>
         <a href="${u('resources/index.html')}">Resources</a>
+        <a href="https://imagery.3deolidar.com" target="_blank" rel="noopener">Point-Cloud Viewer ↗</a>
       </div>
       <div class="footer-col"><h4>Company</h4>
         <a href="${u('about/index.html')}">About</a>
+        <a href="${u('about/news.html')}">News &amp; Events</a>
         <a href="${u('about/contact.html')}">Contact</a>
         <a href="${u('about/careers.html')}">Careers</a>
-        <a href="https://imagery.3deolidar.com" target="_blank" rel="noopener">Point-Cloud Viewer ↗</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© ${new Date().getFullYear()} 3DEO, Inc. All rights reserved.</span>
-      <span>@3deolidar &nbsp;·&nbsp; MIT Lincoln Laboratory spin-out &nbsp;·&nbsp; Norwood, MA</span>
+      <span>@3deolidar &nbsp;·&nbsp; Military precision, commercialized &nbsp;·&nbsp; Norwood, MA</span>
     </div>
   </div>`;
   document.body.appendChild(footer);
