@@ -7,15 +7,15 @@
    │  ▼▼▼  PASTE YOUR HUBSPOT IDs HERE — THIS IS THE ONLY SPOT TO EDIT  ▼▼▼  │
    └───────────────────────────────────────────────────────────────────────┘ */
    window.HUBSPOT = {
-     portalId: "PASTE_PORTAL_ID",              // e.g. "44123456" (Settings ▸ Account Info)
+     portalId: "244889917",              // e.g. "44123456" (Settings ▸ Account Info)
      forms: {
-       contact:          "PASTE_CONTACT_FORM_GUID",   // Book a Call — about/contact.html
-       project:          "PASTE_PROJECT_FORM_GUID",   // Tell us about your project — industries/tell-us-about-your-project.html
-       industry_request: "PASTE_INDUSTRY_FORM_GUID",  // Request an Industry — industries/request.html
-       data_request:     "PASTE_DATA_FORM_GUID",      // Request a Data Set — point-clouds/request.html
-       careers:          "PASTE_CAREERS_FORM_GUID",   // Join Our Team — about/careers.html
-       pilot:            "PASTE_PILOT_FORM_GUID",      // Apply for a Pilot — about/pilot.html
-       nda:              "PASTE_NDA_FORM_GUID"         // NDA data-access gate (modal in js/site.js)
+       contact:          "b669b8a3-f5e6-4925-9ec5-14b7d00ad65d",   // Book a Call — about/contact.html
+       project:          "ba9c7948-8b1a-4296-a222-2fe84ca0cc05",   // Tell us about your project — industries/tell-us-about-your-project.html
+       industry_request: "856e0c20-d03c-478f-a2d8-86230fadfa91",  // Request an Industry — industries/request.html
+       data_request:     "d06ebda6-480b-4bd5-8b2a-8ff91eda3904",      // Request a Data Set — point-clouds/request.html
+       careers:          "66f69176-fbf4-4c44-af3f-1a16d62aea63",   // Join Our Team — about/careers.html
+       pilot:            "d9eb09e2-5a99-4d93-93db-b055d1203237",      // Apply for a Pilot — about/pilot.html
+       nda:              "b981d505-5cd3-4485-8bcb-2e4a1e5dc485"         // NDA data-access gate (modal in js/site.js)
      },
      region: "na1"                             // "na1" (US, default) | "eu1" (EU data centre)
    };
