@@ -7,13 +7,6 @@
   const B = (document.body && document.body.dataset.base) || '';
   const u = (p)=> B + p;
 
-  /* ---- FontAwesome Pro kit ---- */
-  if(!document.getElementById('fa-kit')){
-    const faKit=document.createElement('script');
-    faKit.id='fa-kit';faKit.src='https://kit.fontawesome.com/d4030a9fac.js';faKit.crossOrigin='anonymous';
-    document.head.appendChild(faKit);
-  }
-
   /* ---- design prefs persistence (set by Tweaks / explorer) ---- */
   const FONTSETS = {
     archivo:{disp:"'Archivo', sans-serif", body:"'Hanken Grotesk', sans-serif"},
@@ -40,7 +33,7 @@
   /* ---- nav model (mirrors the sitemap) ---- */
   const NAV = [
     {label:'Technology', href:'technology/index.html', items:[
-      {t:'Geiger-mode Lidar', s:'Heightened photon sensitivity, high data recording rates and agile geo-referenced scanning — map faster, at higher resolution in more detail, all from a single configurable lidar system.', h:'technology/geiger-mode.html'},
+      {t:'Geiger-mode Lidar', s:'What it really is — and isn’t', h:'technology/geiger-mode.html'},
       {t:'Agile Geo-Referenced Scanning', s:'Multi-angle capture, fewer shadows', h:'technology/agile-scanning.html'},
     ]},
     {label:'Products', href:'products/index.html', items:[
@@ -54,7 +47,8 @@
       {t:'Forestry', h:'industries/forestry.html'},
       {t:'City Mapping', h:'industries/city-mapping.html'},
       {t:'Utilities', h:'industries/utilities.html'},
-      {t:'Intelligence, Surveillance & Reconnaissance', h:'industries/intelligence.html'},
+      {t:'Defense', h:'industries/defense.html'},
+      {t:'Intelligence', h:'industries/intelligence.html'},
       {t:'Disaster Relief', h:'industries/disaster-relief.html'},
       {t:'Oil & Gas', h:'industries/oil-and-gas.html'},
       {t:'Archeology', h:'industries/archeology.html'},
@@ -71,6 +65,7 @@
       {t:'White Papers', s:'Peer-grade technical depth', h:'resources/whitepapers.html'},
       {t:'Case Studies', s:'Real collections, real results', h:'resources/case-studies.html'},
       {t:'Presentations', s:'Talks & briefings', h:'resources/presentations.html'},
+      {t:'ISPRS 2026', s:'Meet us at the show', h:'isprs.html'},
     ]},
     {label:'About', href:'about/index.html', items:[
       {t:'Company', s:'MIT Lincoln Lab spin-out', h:'about/index.html'},
@@ -137,11 +132,6 @@
           106 Access Road, Suite 106<br>Norwood, MA 02062 USA<br>
           <a href="mailto:sales@3deolidar.com">sales@3deolidar.com</a>
         </p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/3deo-inc/" target="_blank" rel="noopener" aria-label="3DEO on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
-          <a href="https://x.com/3deolidar" target="_blank" rel="noopener" aria-label="3DEO on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.82-5.97 6.82H1.66l7.73-8.84L1.25 2.25h6.82l4.72 6.23 5.45-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05l12.03 15.64z"/></svg></a>
-          <a href="https://bsky.app/profile/3deolidar.bsky.social" target="_blank" rel="noopener" aria-label="3DEO on Bluesky"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8C10.9 8.6 7.9 4.9 5.1 3 2.4 1.1 1.4 1.4.7 1.7 0 2 0 3.1 0 3.8c0 .7.4 5.6.6 6.4.8 2.8 3.7 3.7 6.4 3.4-4 .6-7.5 2-2.9 7.2 5 5.4 6.9-1.2 7.9-4.5 1 3.3 2.9 9.9 7.9 4.5 4.6-5.2 1.1-6.6-2.9-7.2 2.7.3 5.6-.6 6.4-3.4.2-.8.6-5.7.6-6.4 0-.7 0-1.8-.7-2.1-.7-.3-1.7-.6-4.4 1.3C16 4.9 13.1 8.6 12 10.8z"/></svg></a>
-        </div>
       </div>
       <div class="footer-col"><h4>Technology</h4>
         <a href="${u('technology/geiger-mode.html')}">Geiger-mode Lidar</a>
@@ -215,15 +205,6 @@
     const valid = name.length>1 && /.+@.+\..+/.test(email) && ok;
     if(!valid){ scrim.querySelector('#nda-err').style.display='block'; return; }
     try{ localStorage.setItem(NDA_KEY, JSON.stringify({name,email,at:new Date().toISOString()})); }catch(e){}
-    // Register the viewer as a HubSpot contact (fires only once IDs are configured)
-    if(window.HubSpotForms && window.HubSpotForms.isConfigured('nda')){
-      var parts=name.split(/\s+/);
-      var f=[{name:'email',value:email},{name:'firstname',value:parts.shift()}];
-      if(parts.length) f.push({name:'lastname',value:parts.join(' ')});
-      f.push({name:'viewed_point_cloud_data',value:'true'});
-      f.push({name:'point_cloud_viewed_at',value:new Date().toISOString().slice(0,10)});
-      window.HubSpotForms.submit('nda', f).catch(function(err){ console.warn('[HubSpot] NDA submit failed:', err); });
-    }
     closeNDA();
     document.documentElement.setAttribute('data-unlocked','true');
     document.querySelectorAll('[data-nda-gated]').forEach(el=>el.setAttribute('data-unlocked','true'));
